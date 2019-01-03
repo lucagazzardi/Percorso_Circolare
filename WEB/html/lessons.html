@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="../favicon.ico">
+    <title>Lezioni - Percorso Circolare</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../node_modules/bootstrap3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Custom CSS-->
+    <link href="../css/jumbotron.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img style="height: 25px; margin-top: -2px" src="../images/retiper.png" /></a>
+            </div>
+            <div id="menu" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="g-font">Home</a></li>
+                    <li><a href="courses.html" class="g-font">Corsi</a></li>
+                    <li><a href="modules.html" class="g-font">Moduli</a></li>
+                    <li class="active"><a href="#" class="g-font">Lezioni</a></li>
+                    <li><a href="resources.html" class="g-font">Risorse</a></li>
+                </ul>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <!-- login form -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--Lessons table-->
+
+    <div class="container margin-top-30 width-90">
+        <h2 class="g-font">Lezioni</h2>
+        <div class="row">
+            <!--Button trigger modal-->
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary margin-top-30 g-font" data-toggle="modal" data-target="#addNew" onclick="initAddNewLesson([ '#courses-lesson-input', '#teacher-lesson-input', '#backup-lesson-input', '#module-lesson-input' ])">
+                    Aggiungi lezione
+                </button>
+            </div>
+
+            <div class="input-group mb-3 col-md-4 margin-top-30 margin-left-auto">
+                <div class="input-group-addon">
+                    <span class="input-group-text" id="addon-wrapping"><span class="glyphicon glyphicon-search"></span></span>
+                </div>
+                <input type="text" id="search-bar" class="form-control" placeholder="Cerca" aria-label="Cerca" aria-describedby="addon-wrapping">
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="g-font" id="alert">
+
+        </div>
+        
+        <div class="table-responsive-md" id="table-items">
+            <table class="table">
+                <thead class="g-font">
+                    <tr>
+                        <th scope="col">Elimina</th>
+                        <th scope="col">Dettaglio</th>
+                        <th scope="col">Descrizione</th>
+                        <th class="hidden-sm hidden-xs" scope="col">Data</th>
+                        <th scope="col">Modulo</th>
+                        <th scope="col">Corso</th>
+                        <th class="hidden-sm hidden-xs" scope="col">Aula</th>
+                        <th class="hidden-sm hidden-xs" scope="col">Docente</th>
+                        <th class="hidden-sm hidden-xs" scope="col">Backup</th>
+                    </tr>
+                </thead>
+                <tbody id="lessons-table"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--ADD NEW MODAL-->
+
+    <div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title g-font" id="addNewTitle">
+                        <strong>Aggiungi una lezione</strong>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h5>
+                </div>
+                <div class="modal-body g-font">
+
+                    <!--ALERT DATA ERROR-->
+                    <div id="alert-modal">
+
+                    </div>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="description-lesson-input">Descrizione *</label>
+                            <input type="text" class="form-control" id="description-lesson-input" placeholder="Es. Operazioni CRUD">
+                        </div>
+                        <div class="row">
+                            <!--Module dropdown-->
+                            <div class="form-group col-md-6">
+                                <label for="module-lesson-input">Modulo *</label>
+                                <select class="form-control" id="module-lesson-input" placeholder="Seleziona modulo"></select>
+                            </div>
+                            <!--Course dropdown-->
+                            <div class="form-group col-md-6">
+                                <label for="courses-lesson-input">Corso *</label>
+                                <select class="form-control" id="courses-lesson-input"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="date-lesson-input">Data lezione</label>
+                            <input type="date" class="form-control" id="date-lesson-input" placeholder="Inserisci il numero di crediti">
+                        </div>
+                        <!--Classroom dropdown-->
+                        <div class="form-group">
+                            <label for="classroom-lesson-input">Aula</label>
+                            <select class="form-control" id="classroom-lesson-input"></select>
+                        </div>
+                        <!--Resource dropdown-->
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="teacher-lesson-input">Docente *</label>
+                                <select class="form-control" id="teacher-lesson-input"></select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="backup-lesson-input">Sostituto *</label>
+                                <select class="form-control" id="backup-lesson-input"></select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer g-font">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn btn-primary" onclick="createLesson()">Aggiungi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--DETAIL MODAL-->
+
+    <div class="modal fade" id="detail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title g-font" id="detailTitle">
+                        <strong>Dettaglio lezione</strong>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12" style="text-align: center" id="loader"><img src="../images/loader.gif" /></div>
+                    <ul class="list-group g-font" id="detail-list"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default g-font" data-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--DELETE MODAL-->
+
+    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title g-font" id="deleteTitle">
+                        <strong>Cancellazione lezione</strong>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <p>Sei sicuro di cancellare la lezione?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary g-font" id="btn-delete-confirm">Conferma</button>
+                    <button type="button" class="btn btn-default g-font" data-dismiss="modal">Annulla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap3/dist/js/bootstrap.min.js"></script>
+    <script src="../scripts/list.js"></script>
+</body>
+</html>

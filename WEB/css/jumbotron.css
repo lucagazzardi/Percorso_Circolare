@@ -1,0 +1,68 @@
+﻿body {
+    padding-top: 40px;
+}
+
+.navbar-fixed-top {
+    background-color: #3a3a3a;
+    border-bottom: none;
+}
+
+.active {
+    background-color: #ff0000
+}
+
+#menu li.active > a {
+    background-color: #d12121;
+    color: #fff;
+}
+
+.width-90{
+    width: 90%;
+}
+
+.g-font {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.center-grid{
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.margin-top-30{
+    margin-top: 30px;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.margin-auto{
+    margin:auto;
+}
+
+.margin-left-auto{
+    margin-left:auto;
+}
+
+#addNew .modal-dialog-centered, #detail-modal .modal-dialog-centered, #delete-modal .modal-dialog-centered {
+    -webkit-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    top: 50%;
+    margin: 0 auto;
+}
+
+.add-new-icon {
+    cursor: pointer;
+    color: #4286f4
+}
+
+.delete-icon{
+    cursor: pointer;
+    color:red;
+}
