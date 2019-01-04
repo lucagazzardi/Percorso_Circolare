@@ -13,7 +13,10 @@ enum ResourceStatus {
 
 //StartUp
 $(document).ready(() => {
+    //Function for searching in each list page
     $('#search-bar').keyup(search);
+
+    //Retrieve the list
     _self.getCourses();
     _self.getLessons();
     _self.getModules();
@@ -265,6 +268,7 @@ function createCourse(): void {
 
 function createModule() {
 
+    //Check required fields values
     if ($('#name-module-input').val() == '' || $('#courses-module-input').val() == 0 || $('#credits-module-input').val() == '') {
         _self.attachAlertModal();
         return;
@@ -293,6 +297,7 @@ function createModule() {
 
 function createLesson() {
 
+    //Check required fields values
     if ($('#description-lesson-input').val() == '' ||
         $('#module-lesson-input').val() == 0 ||
         $('#courses-lesson-input').val() == 0 ||
@@ -343,6 +348,7 @@ function createLesson() {
 
 function createResource() {
 
+    //Check required fields values
     if ($('#id-resource-input').val() == '' || $('#username-resource-input').val() == ''
     ) {        
         _self.attachAlertModal();
