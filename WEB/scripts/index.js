@@ -4,6 +4,7 @@ let _self = this;
 let options = { year: 'numeric', month: '2-digit', day: '2-digit' };
 //StartUp
 $(document).ready(() => {
+    //Loader for API calls
     $('#loader-course').hide();
     $('#loader-lessons').hide();
     _self.getLastCourses();
