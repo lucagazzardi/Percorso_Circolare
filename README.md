@@ -11,9 +11,11 @@ Informazioni riguardo il funzionamento dell'applicazione.
 Lo script per la creazione del database è presente sia nello ZIP inviato come allegato, sia in questa repository Git.
 La stringa di connessione presente all'interno dell'applicazione, per connettere Entity Framework al database, cerca il database **PercorsoCircolare**, sorgente: **(LocalDb)\MSSQLLocalDB**.
 
+Il database è già popolato con alcuni dati inseriti durante i test.
+
 ### Solution
 
-Per il debug dell'applicazione è necessario impostare il progetto **Circolare.WebAPI** e **Circolare.WEB** come **StartUp Projects** dalle proprietà della solution
+Per il debug dell'applicazione è necessario impostare il progetto **Circolare.WebAPI** e il progetto **Circolare.WEB** come **StartUp Projects** dalle properties della solution.
 
 ### Librerie da NPM
 
@@ -27,7 +29,7 @@ npm install
 
 **IMPORTANTE**
 
-Tra le altre, sarà presente la libreria typings per Bootstrap, all'interno della cartella **node_modules > @types > bootstrap** e **node_modules > popper.js**. All'interno del file **index.d.ts** della prima, alla **riga 9**, è presente un import della seconda, che dopo il download da NPM sarà scritto:
+Tra le altre, sarà presente la libreria typings per Bootstrap, all'interno della cartella **node_modules > @types > bootstrap** e la libreria Popper nella cartella **node_modules > popper.js**. All'interno del file **index.d.ts** della prima, alla **riga 9**, è presente un import della seconda, che dopo il download da NPM sarà scritto:
 
 ```
 import * as Popper from "popper.js"
@@ -55,5 +57,5 @@ La stringa di connessione è invece salvata sia nel file **App.config** del prog
 
 Per la parte client è stato utilizzato Typescript, il cui compilatore è stato anch'esso installato come pacchetto **NuGet** nel progetto **Circolare.WEB**
 
-Nel progetto **Circolare.WebAPI**, oltre ai pacchetti relativi alle API, è stato installato **StructureMap** per permettere la **dependency injection** nelle classi dei Controller (impostazioni nel file **DefaultRegistry.cs**) e il pacchetto per la gestione del **CORS**.
+Nel progetto **Circolare.WebAPI**, oltre ai pacchetti relativi alle API, è stato installato **StructureMap** per permettere la **dependency injection** nelle classi dei Controller (impostazioni nel file **DefaultRegistry.cs**) e il pacchetto per la gestione **CORS**.
 E' stata definita anche una classe (**CustomResolver.cs**) per ridefinire il resolver di default **JSON**.
