@@ -1,6 +1,6 @@
 # Percorso_Circolare
 
-Progetto finale Percorso Circolare.
+Progetto finale Percorso Circolare di Luca Gazzardi.
 
 ## Setup dell'applicazione
 
