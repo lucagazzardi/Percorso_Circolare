@@ -21,7 +21,7 @@ Per il debug dell'applicazione è necessario impostare il progetto **Circolare.W
 
 Sono state utilizzate diverse librerie di terze parti, scaricate tramite NPM all'interno del progetto **Circolare.WEB**.
 
-All'interno di questa repository non viene copiata la cartella **node_modules**, pertanto è necessario eseguire il comando:
+All'interno della repository Git non viene copiata la cartella **node_modules**, pertanto è necessario eseguire il comando:
 
 ```
 npm install
@@ -29,7 +29,8 @@ npm install
 
 **IMPORTANTE**
 
-Tra le altre, sarà presente la libreria typings per Bootstrap, all'interno della cartella **node_modules > @types > bootstrap** e la libreria Popper nella cartella **node_modules > popper.js**. All'interno del file **index.d.ts** della prima, alla **riga 9**, è presente un import della seconda, che dopo il download da NPM sarà scritto:
+Tra le altre, sarà presente la libreria typings per Bootstrap, all'interno della cartella **node_modules > @types > bootstrap** e la libreria Popper nella cartella **node_modules > popper.js**. 
+All'interno del file **index.d.ts** della prima, alla **riga 9**, è presente un import della seconda, che dopo il download da NPM sarà scritto:
 
 ```
 import * as Popper from "popper.js"
@@ -42,4 +43,6 @@ import * as Popper from "popper.js/dist/popper"
 ```
 
 E' consigliabile riavviare Visual Studio dopo il download dei pacchetti NPM e della modifica di cui sopra.
+
+Ulteriori informazioni sul progetto sono presenti nel file Readme.md nella repository di Git.
 
