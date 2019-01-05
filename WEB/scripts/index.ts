@@ -27,7 +27,7 @@ function getLastCourses() {
 
             // Get first 5 elements
             courses.sort((a: CourseDto, b: CourseDto) => b.Id - a.Id);
-            courses.slice(0, 6);
+            courses = courses.slice(0, 5);
 
             $.each(courses, (key, item: CourseDto) => {
                 $('#courses-table').append('<tr class="g-font"><th scope="row">' + item.Id +
@@ -54,7 +54,7 @@ function getLastLessons() {
 
             // Get first 5 elements
             lessons.sort((a: LessonDto, b: LessonDto) => b.Id - a.Id);
-            lessons.slice(0, 6);
+            lessons = lessons.slice(0, 5);
 
             $.each(lessons, (key, item: LessonDto) => {
                 $('#lessons-table').append('<tr class="g-font"><th scope="row">' + item.Id +

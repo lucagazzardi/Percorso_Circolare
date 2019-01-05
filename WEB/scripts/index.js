@@ -18,7 +18,7 @@ function getLastCourses() {
         .done((courses) => {
         // Get first 5 elements
         courses.sort((a, b) => b.Id - a.Id);
-        courses.slice(0, 6);
+        courses = courses.slice(0, 5);
         $.each(courses, (key, item) => {
             $('#courses-table').append('<tr class="g-font"><th scope="row">' + item.Id +
                 '</th><td>' + item.Description + '</td><td class="hidden-sm hidden-xs">' + item.Year + '</td><td>' +
@@ -39,7 +39,7 @@ function getLastLessons() {
         .done((lessons) => {
         // Get first 5 elements
         lessons.sort((a, b) => b.Id - a.Id);
-        lessons.slice(0, 6);
+        lessons = lessons.slice(0, 5);
         $.each(lessons, (key, item) => {
             $('#lessons-table').append('<tr class="g-font"><th scope="row">' + item.Id +
                 '</th><td>' + item.Description + '</td><td>' + new Date(item.LectureDate).toLocaleDateString('it-IT', options) + '</td><td>' +
